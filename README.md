@@ -16,18 +16,19 @@ The simulation models the rover operating in an underground mine environment and
 
 ![VAJRA Dashboard](VAJRA_Gazebo_Dashboard.png)
 
-## Included
+## Key Features
 
-- VAJRA rover URDF with six-wheel differential drive
-- Underground mine environment
-- Real Gazebo stereo RGB camera sensors
-- ROS 2 ↔ Gazebo topic bridging
-- Rover velocity control and odometry
-- Web dashboard with live left/right camera feeds
-- Simulated CH4, CO, H2S, temperature, humidity, and vibration sensing
-- Hazard values that vary with rover position
-- Supporting stereo camera information and odometry-to-TF nodes
-- RTAB-Map/SLAM-related launch and configuration files retained for future development
+- **Six-wheel differential-drive rover** modeled using URDF
+- **Underground mine environment** simulated in Gazebo
+- **Stereo RGB camera sensors** for simulated visual perception
+- **ROS 2 ↔ Gazebo communication** using topic bridging
+- **Rover velocity control and odometry** for simulated navigation
+- **Live monitoring dashboard** with left and right camera feeds
+- **Simulated mine-hazard sensing** for CH₄, CO, H₂S, temperature, humidity, and vibration
+- **Position-dependent hazard values** to simulate changing underground conditions
+- **Stereo camera information and odometry-to-TF support nodes**
+- **RTAB-Map / SLAM configuration files** retained for future development
+
 
 ## Current demo architecture
 
