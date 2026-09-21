@@ -1,6 +1,7 @@
 # VAJRA Mine Rescue Rover — Gazebo Simulation
 
 This repository contains the working VAJRA underground mine-rescue rover simulation developed in ROS 2 Humble with Gazebo Sim / Gazebo Harmonic.
+![VAJRA Mine Rescue Rover Gazebo Simulation](VAJRA_Gazebo_Simulation.png)
 
 ## Included
 
