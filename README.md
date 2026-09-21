@@ -149,3 +149,8 @@ The generated `build/`, `install/`, and `log/` directories are intentionally not
 ## Notes
 
 This archive preserves the working source files from the frozen simulation workspace. SLAM/RTAB-Map files are retained but are not required for the current demo configuration.
+
+## Contributors
+
+- **Sai Siddarth Gajja** (`@saisiddarthgajjaname`) — ROS 2 and Gazebo simulation development
+- **Sahithi Thotapalle** — Project integration, documentation, and repository maintenance
