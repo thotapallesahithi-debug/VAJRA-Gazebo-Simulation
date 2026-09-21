@@ -86,6 +86,41 @@ The simulation is organized into three main ROS 2 packages:
 | `vajra_sensors` | Simulated environmental and hazard sensing |
 | `vajra_dashboard` | Monitoring dashboard and camera-feed visualization |
 
+## Project Structure
+
+```text
+VAJRA-Gazebo-Simulation/
+├── README.md
+├── .gitignore
+└── src/
+    ├── vajra_sensors/
+    │   ├── vajra_sensors/
+    │   ├── resource/
+    │   ├── test/
+    │   ├── package.xml
+    │   ├── setup.py
+    │   └── setup.cfg
+    │
+    ├── vajra_dashboard/
+    │   ├── vajra_dashboard/
+    │   ├── resource/
+    │   ├── test/
+    │   ├── package.xml
+    │   ├── setup.py
+    │   └── setup.cfg
+    │
+    └── vajra_description/
+        ├── launch/
+        ├── config/
+        ├── worlds/
+        ├── urdf/
+        ├── include/
+        ├── src/
+        ├── vajra_description/
+        ├── package.xml
+        └── CMakeLists.txt
+```
+
 ## Workspace
 
 This repository contains the ROS 2 workspace source structure.
