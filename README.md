@@ -66,11 +66,25 @@ flowchart LR
 - **Odometry:** Gazebo odometry → `ros_gz_bridge` → ROS 2 `/odom`
 - **Rover control:** ROS 2 `/model/vajra/cmd_vel` → `ros_gz_bridge` → Gazebo rover
 
-## Software
+## Software Requirements
 
-- Ubuntu 22.04
-- ROS 2 Humble
-- Gazebo Sim / Gazebo Harmonic
+The simulation was developed and tested using:
+
+- **Ubuntu 22.04**
+- **ROS 2 Humble**
+- **Gazebo Sim / Gazebo Harmonic**
+- **Python 3**
+- **colcon** for ROS 2 workspace building
+
+## ROS 2 Packages
+
+The simulation is organized into three main ROS 2 packages:
+
+| Package | Purpose |
+|---|---|
+| `vajra_description` | Rover model, mine world, URDF, launch files, and simulation configuration |
+| `vajra_sensors` | Simulated environmental and hazard sensing |
+| `vajra_dashboard` | Monitoring dashboard and camera-feed visualization |
 
 ## Workspace
 
