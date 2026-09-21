@@ -1,0 +1,710 @@
+<?xml version="1.0"?>
+
+<robot name="vajra">
+
+  <!-- ================= BASE ================= -->
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="35.0"/>
+      <inertia
+        ixx="4.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="7.0"
+        iyz="0.0"
+        izz="8.0"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="1.4 0.9 0.3"/>
+      </geometry>
+      <material name="dark_chassis">
+        <color rgba="0.08 0.08 0.08 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="1.4 0.9 0.3"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <!-- ================= UPPER ARMOR ================= -->
+
+  <link name="upper_armor">
+    <inertial>
+      <mass value="5.0"/>
+      <inertia ixx="0.5" ixy="0" ixz="0"
+               iyy="0.8" iyz="0"
+               izz="0.8"/>
+    </inertial>
+
+    <visual>
+      <geometry>
+        <box size="1.15 0.78 0.16"/>
+      </geometry>
+      <material name="yellow_armor">
+        <color rgba="0.85 0.55 0.02 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="1.15 0.78 0.16"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="upper_armor_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="upper_armor"/>
+    <origin xyz="0 0 0.23"/>
+  </joint>
+
+
+  <!-- ================= LOWER ARMOR ================= -->
+
+  <link name="lower_armor">
+    <inertial>
+      <mass value="3.0"/>
+      <inertia ixx="0.3" ixy="0" ixz="0"
+               iyy="0.5" iyz="0"
+               izz="0.5"/>
+    </inertial>
+
+    <visual>
+      <geometry>
+        <box size="1.5 0.96 0.12"/>
+      </geometry>
+      <material name="yellow_lower">
+        <color rgba="0.65 0.38 0.01 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="1.5 0.96 0.12"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="lower_armor_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="lower_armor"/>
+    <origin xyz="0 0 -0.20"/>
+  </joint>
+
+
+  <!-- ================= LEFT SIDE ARMOR ================= -->
+
+  <link name="left_side_armor">
+    <inertial>
+      <mass value="2.0"/>
+      <inertia ixx="0.2" ixy="0" ixz="0"
+               iyy="0.2" iyz="0"
+               izz="0.2"/>
+    </inertial>
+
+    <visual>
+      <geometry>
+        <box size="1.2 0.08 0.32"/>
+      </geometry>
+      <material name="side_yellow">
+        <color rgba="0.75 0.45 0.01 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="1.2 0.08 0.32"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_side_armor_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="left_side_armor"/>
+    <origin xyz="0 0.49 0"/>
+  </joint>
+
+
+  <!-- ================= RIGHT SIDE ARMOR ================= -->
+
+  <link name="right_side_armor">
+    <inertial>
+      <mass value="2.0"/>
+      <inertia ixx="0.2" ixy="0" ixz="0"
+               iyy="0.2" iyz="0"
+               izz="0.2"/>
+    </inertial>
+
+    <visual>
+      <geometry>
+        <box size="1.2 0.08 0.32"/>
+      </geometry>
+      <material name="side_yellow_r">
+        <color rgba="0.75 0.45 0.01 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="1.2 0.08 0.32"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_side_armor_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_side_armor"/>
+    <origin xyz="0 -0.49 0"/>
+  </joint>
+
+
+  <!-- ================= FRONT BUMPER ================= -->
+
+  <link name="front_bumper">
+    <inertial>
+      <mass value="2.0"/>
+      <inertia ixx="0.2" ixy="0" ixz="0"
+               iyy="0.2" iyz="0"
+               izz="0.2"/>
+    </inertial>
+
+    <visual>
+      <geometry>
+        <box size="0.12 0.95 0.25"/>
+      </geometry>
+      <material name="bumper">
+        <color rgba="0.12 0.12 0.12 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="0.12 0.95 0.25"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_bumper_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="front_bumper"/>
+    <origin xyz="0.76 0 0"/>
+  </joint>
+
+
+  <!-- ================= REAR BUMPER ================= -->
+
+  <link name="rear_bumper">
+    <inertial>
+      <mass value="2.0"/>
+      <inertia ixx="0.2" ixy="0" ixz="0"
+               iyy="0.2" iyz="0"
+               izz="0.2"/>
+    </inertial>
+
+    <visual>
+      <geometry>
+        <box size="0.12 0.95 0.25"/>
+      </geometry>
+      <material name="rear_bumper_mat">
+        <color rgba="0.12 0.12 0.12 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="0.12 0.95 0.25"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rear_bumper_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="rear_bumper"/>
+    <origin xyz="-0.76 0 0"/>
+  </joint>
+
+
+  <!-- ================= WHEELS ================= -->
+
+  <link name="front_left_wheel">
+    <inertial>
+      <mass value="2.0"/>
+      <inertia ixx="0.08" ixy="0" ixz="0"
+               iyy="0.08" iyz="0"
+               izz="0.05"/>
+    </inertial>
+
+    <visual>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.18" length="0.12"/>
+      </geometry>
+      <material name="wheel_mat">
+        <color rgba="0.03 0.03 0.03 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.18" length="0.12"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="front_left_wheel"/>
+    <origin xyz="0.48 0.49 -0.15"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+
+  <link name="middle_left_wheel">
+    <inertial>
+      <mass value="2.0"/>
+      <inertia ixx="0.08" ixy="0" ixz="0"
+               iyy="0.08" iyz="0"
+               izz="0.05"/>
+    </inertial>
+
+    <visual>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.18" length="0.12"/>
+      </geometry>
+      <material name="wheel_mat2">
+        <color rgba="0.03 0.03 0.03 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.18" length="0.12"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="middle_left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="middle_left_wheel"/>
+    <origin xyz="0 0.49 -0.15"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+
+  <link name="rear_left_wheel">
+    <inertial>
+      <mass value="2.0"/>
+      <inertia ixx="0.08" ixy="0" ixz="0"
+               iyy="0.08" iyz="0"
+               izz="0.05"/>
+    </inertial>
+
+    <visual>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.18" length="0.12"/>
+      </geometry>
+      <material name="wheel_mat3">
+        <color rgba="0.03 0.03 0.03 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.18" length="0.12"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rear_left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="rear_left_wheel"/>
+    <origin xyz="-0.48 0.49 -0.15"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+
+  <link name="front_right_wheel">
+    <inertial>
+      <mass value="2.0"/>
+      <inertia ixx="0.08" ixy="0" ixz="0"
+               iyy="0.08" iyz="0"
+               izz="0.05"/>
+    </inertial>
+
+    <visual>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.18" length="0.12"/>
+      </geometry>
+      <material name="wheel_mat4">
+        <color rgba="0.03 0.03 0.03 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.18" length="0.12"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_right_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="front_right_wheel"/>
+    <origin xyz="0.48 -0.49 -0.15"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+
+  <link name="middle_right_wheel">
+    <inertial>
+      <mass value="2.0"/>
+      <inertia ixx="0.08" ixy="0" ixz="0"
+               iyy="0.08" iyz="0"
+               izz="0.05"/>
+    </inertial>
+
+    <visual>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.18" length="0.12"/>
+      </geometry>
+      <material name="wheel_mat5">
+        <color rgba="0.03 0.03 0.03 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.18" length="0.12"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="middle_right_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="middle_right_wheel"/>
+    <origin xyz="0 -0.49 -0.15"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+
+  <link name="rear_right_wheel">
+    <inertial>
+      <mass value="2.0"/>
+      <inertia ixx="0.08" ixy="0" ixz="0"
+               iyy="0.08" iyz="0"
+               izz="0.05"/>
+    </inertial>
+
+    <visual>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.18" length="0.12"/>
+      </geometry>
+      <material name="wheel_mat6">
+        <color rgba="0.03 0.03 0.03 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.18" length="0.12"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rear_right_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="rear_right_wheel"/>
+    <origin xyz="-0.48 -0.49 -0.15"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+
+  <!-- ================= ELECTRONICS BOX ================= -->
+
+  <link name="electronics_box">
+    <inertial>
+      <mass value="4.0"/>
+      <inertia ixx="0.3" ixy="0" ixz="0"
+               iyy="0.3" iyz="0"
+               izz="0.3"/>
+    </inertial>
+
+    <visual>
+      <geometry>
+        <box size="0.55 0.45 0.20"/>
+      </geometry>
+      <material name="electronics">
+        <color rgba="0.05 0.12 0.16 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="0.55 0.45 0.20"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="electronics_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="electronics_box"/>
+    <origin xyz="-0.20 0 0.42"/>
+  </joint>
+
+
+  <!-- ================= CAMERA MAST ================= -->
+
+  <link name="camera_mast">
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="0.05" ixy="0" ixz="0"
+               iyy="0.05" iyz="0"
+               izz="0.05"/>
+    </inertial>
+
+    <visual>
+      <geometry>
+        <box size="0.12 0.12 0.42"/>
+      </geometry>
+      <material name="mast">
+        <color rgba="0.15 0.15 0.15 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="0.12 0.12 0.42"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="camera_mast_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="camera_mast"/>
+    <origin xyz="0.45 0 0.45"/>
+  </joint>
+
+
+  <!-- ================= CAMERA ================= -->
+
+  <link name="camera_link">
+    <inertial>
+      <mass value="0.3"/>
+      <inertia ixx="0.01" ixy="0" ixz="0"
+               iyy="0.01" iyz="0"
+               izz="0.01"/>
+    </inertial>
+
+    <visual>
+      <geometry>
+        <box size="0.16 0.16 0.12"/>
+      </geometry>
+      <material name="camera_body">
+        <color rgba="0.02 0.02 0.02 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="0.16 0.16 0.12"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="camera_joint" type="fixed">
+    <parent link="camera_mast"/>
+    <child link="camera_link"/>
+    <origin xyz="0.12 0 0.23"/>
+  </joint>
+
+
+  <!-- ================= WHEEL FRICTION ================= -->
+
+  <gazebo reference="front_left_wheel">
+    <mu1>1.2</mu1>
+    <mu2>1.2</mu2>
+  </gazebo>
+
+  <gazebo reference="middle_left_wheel">
+    <mu1>1.2</mu1>
+    <mu2>1.2</mu2>
+  </gazebo>
+
+  <gazebo reference="rear_left_wheel">
+    <mu1>1.2</mu1>
+    <mu2>1.2</mu2>
+  </gazebo>
+
+  <gazebo reference="front_right_wheel">
+    <mu1>1.2</mu1>
+    <mu2>1.2</mu2>
+  </gazebo>
+
+  <gazebo reference="middle_right_wheel">
+    <mu1>1.2</mu1>
+    <mu2>1.2</mu2>
+  </gazebo>
+
+  <gazebo reference="rear_right_wheel">
+    <mu1>1.2</mu1>
+    <mu2>1.2</mu2>
+  </gazebo>
+
+
+  <!-- ================= DIFF DRIVE ================= -->
+
+  <gazebo>
+
+    <plugin
+      filename="gz-sim-diff-drive-system"
+      name="gz::sim::systems::DiffDrive">
+
+      <left_joint>front_left_wheel_joint</left_joint>
+      <left_joint>middle_left_wheel_joint</left_joint>
+      <left_joint>rear_left_wheel_joint</left_joint>
+
+      <right_joint>front_right_wheel_joint</right_joint>
+      <right_joint>middle_right_wheel_joint</right_joint>
+      <right_joint>rear_right_wheel_joint</right_joint>
+
+      <wheel_separation>0.98</wheel_separation>
+      <wheel_radius>0.18</wheel_radius>
+
+      <topic>/model/vajra/cmd_vel</topic>
+
+      <odom_topic>/odom</odom_topic>
+      <tf_topic>/tf</tf_topic>
+
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_link</child_frame_id>
+
+      <odom_publish_frequency>30</odom_publish_frequency>
+
+    </plugin>
+
+  </gazebo>
+
+  <!-- ================= STEREO CAMERA LINKS ================= -->
+
+  <link name="left_camera_link">
+    <inertial>
+      <mass value="0.15"/>
+      <inertia ixx="0.005" ixy="0" ixz="0"
+               iyy="0.005" iyz="0"
+               izz="0.005"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <box size="0.12 0.08 0.08"/>
+      </geometry>
+      <material name="left_camera_body">
+        <color rgba="0.02 0.02 0.02 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.12 0.08 0.08"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_camera_joint" type="fixed">
+    <parent link="camera_mast"/>
+    <child link="left_camera_link"/>
+    <origin xyz="0.12 0.075 0.23" rpy="0 0 0"/>
+  </joint>
+
+  <link name="right_camera_link">
+    <inertial>
+      <mass value="0.15"/>
+      <inertia ixx="0.005" ixy="0" ixz="0"
+               iyy="0.005" iyz="0"
+               izz="0.005"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <box size="0.12 0.08 0.08"/>
+      </geometry>
+      <material name="right_camera_body">
+        <color rgba="0.02 0.02 0.02 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.12 0.08 0.08"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_camera_joint" type="fixed">
+    <parent link="camera_mast"/>
+    <child link="right_camera_link"/>
+    <origin xyz="0.12 -0.075 0.23" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ================= GAZEBO STEREO RGB CAMERAS ================= -->
+
+  <gazebo reference="left_camera_link">
+    <sensor name="left_rgb_camera" type="camera">
+      <always_on>true</always_on>
+      <update_rate>20</update_rate>
+      <visualize>true</visualize>
+      <topic>/camera/left/image_raw</topic>
+      <camera>
+        <horizontal_fov>1.0472</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.05</near>
+          <far>100.0</far>
+        </clip>
+      </camera>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="right_camera_link">
+    <sensor name="right_rgb_camera" type="camera">
+      <always_on>true</always_on>
+      <update_rate>20</update_rate>
+      <visualize>true</visualize>
+      <topic>/camera/right/image_raw</topic>
+      <camera>
+        <horizontal_fov>1.0472</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.05</near>
+          <far>100.0</far>
+        </clip>
+      </camera>
+    </sensor>
+  </gazebo>
+
+</robot>

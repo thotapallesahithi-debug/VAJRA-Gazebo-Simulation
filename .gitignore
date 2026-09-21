@@ -1,0 +1,18 @@
+# ROS 2 / colcon generated files
+build/
+install/
+log/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Editor / OS files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Generated graph/PDF artifacts
+frames_*.gv
+frames_*.pdf
