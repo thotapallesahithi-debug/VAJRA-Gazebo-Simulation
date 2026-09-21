@@ -31,17 +31,28 @@ Gazebo odometry → `ros_gz_bridge` → ROS `/odom` → dashboard/sensor simulat
 
 ## Workspace
 
-The ROS 2 workspace is under `vajra_ws/src/`.
+This repository contains the ROS 2 workspace source structure.
 
-Build from the workspace root:
+To use the simulation, place the repository contents inside your ROS 2 workspace so that the package folders are located under:
+
+```text
+vajra_ws/
+└── src/
+    ├── vajra_sensors/
+    ├── vajra_dashboard/
+    └── vajra_description/
+```
+
+Build and launch the simulation from the workspace root:
 
 ```bash
 cd vajra_ws
-colcon build --symlink-install
+colcon build
 source install/setup.bash
+ros2 launch vajra_description vajra_sim.launch.py
 ```
 
-The generated `build/`, `install/`, and `log/` directories are intentionally not included in this repository archive.
+The generated `build/`, `install/`, and `log/` directories are intentionally not included in this repository.
 
 ## Notes
 
