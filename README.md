@@ -1,6 +1,9 @@
 # VAJRA Mine Rescue Rover — Gazebo Simulation
 
-This repository contains the working VAJRA underground mine-rescue rover simulation developed in ROS 2 Humble with Gazebo Sim / Gazebo Harmonic.
+This repository contains the Gazebo simulation of **VAJRA**, an underground mine-rescue rover developed for **Smart India Hackathon (SIH) 2026**.
+
+The simulation models the rover operating in an underground mine environment and provides simulated sensing, stereo camera feeds, rover control, odometry, and a monitoring dashboard using **ROS 2 Humble** and **Gazebo Sim / Gazebo Harmonic**.
+
 ![VAJRA Mine Rescue Rover Gazebo Simulation](VAJRA_Gazebo_Simulation.png)
 
 ## Simulation Preview
