@@ -30,13 +30,41 @@ The simulation models the rover operating in an underground mine environment and
 - **RTAB-Map / SLAM configuration files** retained for future development
 
 
-## Current demo architecture
+## System Architecture
 
-Gazebo camera sensors → Gazebo Sensors system → `ros_gz_image` → ROS camera topics → VAJRA dashboard
+The VAJRA simulation connects the Gazebo mine environment, rover sensors, ROS 2 communication, rover control, and the monitoring dashboard.
 
-Rover controls → ROS `/model/vajra/cmd_vel` → `ros_gz_bridge` → Gazebo
+```mermaid
+flowchart LR
+    A[Gazebo Mine Environment] --> B[VAJRA Rover]
 
-Gazebo odometry → `ros_gz_bridge` → ROS `/odom` → dashboard/sensor simulation
+    B --> C[Camera Sensors]
+    B --> D[Simulated Hazard Sensors]
+    B --> E[Odometry]
+
+    C --> F[Gazebo Sensors]
+    F --> G[ros_gz_image]
+    G --> H[ROS 2 Camera Topics]
+    H --> I[VAJRA Dashboard]
+
+    D --> J[ROS 2 Sensor Simulation]
+    J --> I
+
+    E --> K[ros_gz_bridge]
+    K --> L[ROS 2 /odom]
+    L --> I
+
+    M[Rover Control] --> N[ROS 2 /model/vajra/cmd_vel]
+    N --> O[ros_gz_bridge]
+    O --> B
+```
+
+### Main Communication Paths
+
+- **Camera pipeline:** Gazebo camera sensors → `ros_gz_image` → ROS 2 camera topics → dashboard
+- **Hazard sensing:** Simulated CH₄, CO, H₂S, temperature, humidity, and vibration data → ROS 2 sensor simulation → dashboard
+- **Odometry:** Gazebo odometry → `ros_gz_bridge` → ROS 2 `/odom`
+- **Rover control:** ROS 2 `/model/vajra/cmd_vel` → `ros_gz_bridge` → Gazebo rover
 
 ## Software
 
