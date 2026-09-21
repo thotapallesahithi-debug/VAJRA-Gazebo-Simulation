@@ -3,6 +3,16 @@
 This repository contains the working VAJRA underground mine-rescue rover simulation developed in ROS 2 Humble with Gazebo Sim / Gazebo Harmonic.
 ![VAJRA Mine Rescue Rover Gazebo Simulation](VAJRA_Gazebo_Simulation.png)
 
+## Simulation Preview
+
+### Rover in the Underground Mine
+
+![VAJRA Rover](VAJRA_Gazebo_Rover.png)
+
+### VAJRA Monitoring Dashboard
+
+![VAJRA Dashboard](VAJRA_Gazebo_Dashboard.png)
+
 ## Included
 
 - VAJRA rover URDF with six-wheel differential drive
